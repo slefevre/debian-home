@@ -1,8 +1,9 @@
+
 # Ignore everything
 *
 
 # But not these files...
 !.gitignore
-
-# ...even if they are in subdirectories
-!*/scripts/
+!.vimrc
+!*/scripts/*
+!./scripts/*
