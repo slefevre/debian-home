@@ -7,4 +7,5 @@
 !scripts/
 !scripts/*
 !.vim/
+!.vim/*
 !.vimrc
