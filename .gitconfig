@@ -1,0 +1,7 @@
+[user]
+	name = Steve Lefevre
+	email = lefevre.10@osu.edu
+[push]
+	default = simple
+[core]
+	fileMode = false
