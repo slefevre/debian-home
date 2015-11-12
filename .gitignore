@@ -10,3 +10,4 @@
 !.vim/*
 .vim/.netrwhist
 !.vimrc
+!recipes
