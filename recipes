@@ -5,3 +5,5 @@ git reset --soft HEAD~1
 // erase drive
 fdisk -l // identify device
 dd if=/dev/urandom of=/dev/sdN bs=4096
+
+rsync -cavszP --progress source target
