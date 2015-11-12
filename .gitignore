@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# But not these files/directories
+!.gitignore
+!.gitconfig
+!scripts/
+!scripts/*
+!.vim/
+!.vim/*
+.vim/.netrwhist
+!.vimrc
+
