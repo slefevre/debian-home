@@ -4,4 +4,7 @@
 [push]
 	default = simple
 [core]
-	fileMode = false
+    fileMode = false
+[alias]
+    introduced = log --diff-filter=A --
+    branch-excise = ! "ddd () { git branch -D $1; git push origin --delete $1; }; ddd"
