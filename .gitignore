@@ -11,3 +11,4 @@
 .vim/.netrwhist
 !.vimrc
 !recipes
+!.bash_include

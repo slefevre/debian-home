@@ -7,3 +7,8 @@ fdisk -l // identify device
 dd if=/dev/urandom of=/dev/sdN bs=4096
 
 rsync -cavszP --progress source target
+
+// install guest additions
+sudo aptitude install build-essential module-assistant
+sudo m-a prepare
+
