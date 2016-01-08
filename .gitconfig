@@ -7,4 +7,11 @@
     fileMode = false
 [alias]
     introduced = log --diff-filter=A --
-    branch-excise = ! "ddd () { git branch -D $1; git push origin --delete $1; }; ddd"
+
+    branch-excise = ! "gitddd () { git branch -D $1; git push origin --delete $1; }; gitddd"
+
+    overview = ! "git remote -v; git branch; git status;  git show --name-status;"
+
+    purify = ! "giteee() { git reset --hard; git clean -d -f; }; giteee"
+
+    unstage = reset
