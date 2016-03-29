@@ -5,13 +5,28 @@
 	default = simple
 [core]
     fileMode = false
+
 [alias]
-    introduced = log --diff-filter=A --
 
-    branch-excise = ! "gitddd () { git branch -D $1; git push origin --delete $1; }; gitddd"
+  pretty-log = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
-    overview = ! "git remote -v; git branch; git status;  git show --name-status;"
+  introduced = log --diff-filter=A --
+  
+  unstage = reset
 
-    purify = ! "giteee() { git reset --hard; git clean -d -f; }; giteee"
+  branch-excise = ! "gitddd () { git branch -D $1; git push origin --delete $1; }; gitddd"
 
-    unstage = reset
+  overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
+
+  purify = ! "giteee() { git reset --hard; git clean -d -f; }; giteee"
+
+  unstage = reset
+
+  branch-grow = ! "gitfff() { git checkout -b $1; git push origin $1; }; gitfff"
+  
+  remove-deleted = "!gitjjj() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitjjj"
+
+  alias = config --get-regexp ^alias\\.
+  aliases = config --get-regexp ^alias\\.
+
+  ignore-filemode = config core.fileMode false
