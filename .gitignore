@@ -13,3 +13,5 @@
 !recipes
 !.bash_include
 !.tidy-config
+# for mysql client reverse search
+!.editrc
