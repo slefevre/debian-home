@@ -30,3 +30,5 @@
   aliases = config --get-regexp ^alias\\.
 
   ignore-filemode = config core.fileMode false
+
+  svn-ignore = "!gitkkk() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . }; gitkkk"
