@@ -17,3 +17,6 @@ sudo m-a prepare
 
 // git ignore filemode
 git config core.fileMode false
+
+//pretty-print json
+echo "string" | jq '.'
