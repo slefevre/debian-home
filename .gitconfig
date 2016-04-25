@@ -32,3 +32,6 @@
   ignore-filemode = config core.fileMode false
 
   svn-ignore = "!gitkkk() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . }; gitkkk"
+  svn-delete = "!gitlll() { svn st | grep ^! | cut -b9- | sed 's/^/"/;s/$/"/' | xargs svn rm }; gitlll"
+  svn-commit = "!gitmmm() { svn add --force . ; svn commit -m 'Updates from git' }; gitmmm"
+  svn-push = "!gitnnn() { git svn-ignore; git svn-delete; git svn-commit }; gitnnn"
