@@ -20,3 +20,15 @@ git config core.fileMode false
 
 //pretty-print json
 echo "string" | jq '.'
+
+
+// force group write permission
+// http://superuser.com/a/381525/13743
+To set the group, give /var/www the setgid bit:
+
+chgrp www-data /var/www
+chmod g+s /var/www
+
+To also adjust subdirectories: find /var/www -type d -exec chmod g+s {} +
+
+This will make all newly created files inherit the parent directory's group, instead of the user's.
