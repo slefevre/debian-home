@@ -24,14 +24,14 @@
 
   branch-grow = ! "gitfff() { git checkout -b $1; git push origin $1; }; gitfff"
   
-  remove-deleted = "!gitjjj() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitjjj"
+  remove-deleted = ! "gitjjj() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitjjj"
 
   alias = config --get-regexp ^alias\\.
   aliases = config --get-regexp ^alias\\.
 
   ignore-filemode = config core.fileMode false
 
-  svn-ignore = "!gitkkk() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . }; gitkkk"
-  svn-delete = "!gitlll() { svn st | grep ^! | cut -b9- | sed 's/^/"/;s/$/"/' | xargs svn rm }; gitlll"
-  svn-commit = "!gitmmm() { svn add --force . ; svn commit -m 'Updates from git' }; gitmmm"
-  svn-push = "!gitnnn() { git svn-ignore; git svn-delete; git svn-commit }; gitnnn"
+  svn-ignore = ! "gitkkk() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . ; }; gitkkk"
+  svn-delete = ! "gitlll() { svn st | grep ^! | cut -b9- | sed 's/^/\"/;s/$/\"/' | xargs svn rm ; }; gitlll"
+  svn-commit = ! "gitmmm() { svn add --force . ; svn commit -m 'Updates from git' ; }; gitmmm"
+  svn-push   = ! "gitnnn() { git svn-ignore; git svn-delete; git svn-commit ; }; gitnnn"
