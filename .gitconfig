@@ -17,6 +17,7 @@
   branch-excise = ! "gitbranchexcise () { git branch -D $1; git push origin --delete $1; }; gitbranchexcise"
 
   overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
+  pwd = ! "git rev-parse --show-toplevel; git remote -v; "
 
   purify = ! "gitpurify() { git reset --hard; git clean -d -f; }; gitpurify"
 
