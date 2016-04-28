@@ -31,7 +31,7 @@
 
   ignore-filemode = config core.fileMode false
 
-  smart-diff = ! "gitsmartdiff() { git diff $2 --stat=$COLUMNS,$COLUMNS; }; gitsmartdiff"
+  smart-diff = ! "gitsmartdiff() { git diff $2 --stat=$COLUMNS --stat-graph-width=$(($COLUMNS/5)); }; gitsmartdiff"
 
   commit-ignore-whitespace = ! "gitcommitignorewhitespace() { git diff -w --no-color | git apply --cached --ignore-whitespace; }; gitcommitignorewhitespace"
 
