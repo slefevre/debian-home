@@ -35,7 +35,8 @@
 
   commit-ignore-whitespace = ! "gitcommitignorewhitespace() { git diff -w --no-color | git apply --cached --ignore-whitespace; }; gitcommitignorewhitespace"
 
-  svn-ignore = ! "gitkkk() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . ; }; gitkkk"
-  svn-delete = ! "gitlll() { svn st | grep ^! | cut -b9- | sed 's/^/\"/;s/$/\"/' | xargs svn rm ; }; gitlll"
-  svn-commit = ! "gitmmm() { svn add --force . ; svn commit -m 'Updates from git' ; }; gitmmm"
-  svn-push   = ! "gitnnn() { git svn-ignore; git svn-delete; git svn-commit ; }; gitnnn"
+  svn-ignore = ! "gitsvnignore() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . ; }; gitsvnignore"
+  svn-delete = ! "gitsvndelete() { svn st | grep ^! | cut -b9- | sed 's/^/\"/;s/$/\"/' | xargs svn rm ; }; gitsvndelete"
+  svn-commit = ! "gitsvncommit() { svn add --force . ; svn commit -m 'Updates from git' ; }; gitsvncommit"
+  svn-push   = ! "gitsvnpush() { git svn-ignore; git svn-delete; git svn-commit ; }; gitsvnpush"
+  svn-commit2 = ! "gitsvncommit2() { svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm; svn add --force . ;  svn commit -m \"Updates from git\"; }; gitsvncommit2"
