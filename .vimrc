@@ -43,7 +43,5 @@ set hlsearch
 set ignorecase
 set joinspaces
 set shiftround
-set shiftwidth=2
-set tabstop=2
 set textwidth=0
 syntax enable
