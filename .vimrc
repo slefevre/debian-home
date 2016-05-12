@@ -29,6 +29,10 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " delete trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
 
+set background=dark
+colorscheme hybrid
+syntax on
+
 set number
 set autoindent
 set comments=s1:/**,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-

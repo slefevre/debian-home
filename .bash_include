@@ -1,3 +1,6 @@
 
+# fix vim colorschemes
+export TERM=xterm-256color
+
 eval `ssh-agent -s`
 ssh-add ~/.ssh/id_rsa
