@@ -1,3 +1,3 @@
 #!/bin/bash
 sudo aptitude update
-sudo aptitude safe-upgrade
+sudo aptitude -y safe-upgrade
