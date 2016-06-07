@@ -1,3 +1,7 @@
+PATH=$PATH:/usr/local/bin/composer:~/.composer/vendor/bin
+
+eval `ssh-agent -s`
+ssh-add /home/slefevre/.ssh/id_rsa
 # Eternal bash history.
 # ---------------------
 # Undocumented feature which sets the size to "unlimited".
@@ -10,9 +14,6 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND
-
-eval `ssh-agent -s`
-ssh-add ~/.ssh/id_rsa
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 export COLUMNS

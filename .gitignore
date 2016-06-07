@@ -11,7 +11,7 @@
 .vim/.netrwhist
 !.vimrc
 !recipes
-!.bash_include
+!.bash_profile
 !.tidy-config
 # for mysql client reverse search
 !.editrc
