@@ -1,8 +1,5 @@
 PATH=$PATH:/usr/local/bin/composer:~/.composer/vendor/bin
 
-#eval `ssh-agent -s`
-#ssh-add /home/slefevre/.ssh/id_rsa
-
 # Eternal bash history.
 # ---------------------
 # Undocumented feature which sets the size to "unlimited".
