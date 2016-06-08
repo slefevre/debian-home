@@ -12,6 +12,7 @@
 !.vimrc
 !recipes
 !.bash_profile
+!.bash_aliases
 !.tidy-config
 # for mysql client reverse search
 !.editrc
