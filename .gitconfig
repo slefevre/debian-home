@@ -19,9 +19,10 @@
   overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
   pwd = ! "git rev-parse --show-toplevel; git remote -v; "
 
+  scrub = ! "gitscrub() { git reset --hard; git clean -d -f; }; gitscrub"
   purify = ! "gitpurify() { git reset --hard; git clean -d -f; }; gitpurify"
 
-  unstage = reset
+  clear = reset --hard
 
   branch-grow = ! "gitbranchgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitbranchgrow"
 
