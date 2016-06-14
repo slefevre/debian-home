@@ -29,10 +29,11 @@
   remove = ! "gitremove() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitremove"
   forget  = ! "gitforget() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitforget"
 
-  remove-untracked = ! "gitremoveuntracked() { git ls-files --others --exclude-standard | xargs rm; }; gitremoveuntracked"
-
   staged = diff --cached
   ignored = status --ignored
+  untracked = ls-files --others --exclude-standard
+
+  remove-untracked = ! "gitremoveuntracked() { git untracked | xargs rm; }; gitremoveuntracked"
 
   alias = config --get-regexp ^alias\\.
   aliases = config --get-regexp ^alias\\.
