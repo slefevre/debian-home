@@ -29,6 +29,8 @@
   remove = ! "gitremove() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitremove"
   forget  = ! "gitforget() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitforget"
 
+  remove-untracked = ! "gitremoveuntracked() { git ls-files --others --exclude-standard | xargs rm; }; gitremoveuntracked"
+
   staged = diff --cached
   ignored = status --ignored
 
@@ -44,5 +46,5 @@
   svn-ignore = ! "gitsvnignore() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . ; }; gitsvnignore"
   svn-delete = ! "gitsvndelete() { svn st | grep ^! | cut -b9- | sed 's/^/\"/;s/$/\"/' | xargs svn rm ; }; gitsvndelete"
   svn-commit = ! "gitsvncommit() { svn add --force . ; svn commit -m 'Updates from git' ; }; gitsvncommit"
-  svn-push   = ! "gitsvnpush() { svn update .; git svn-delete; git svn-commit ; }; gitsvnpush"
+  svn-push   = ! "gitsvnpush() { git stash; svn update .; git svn-delete; git svn-commit ; git stash pop; }; gitsvnpush"
   svn-commit2 = ! "gitsvncommit2() { svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm; svn add --force . ;  svn commit -m \"Updates from git\"; }; gitsvncommit2"
