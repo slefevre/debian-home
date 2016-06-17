@@ -33,7 +33,7 @@
   ignored = status --ignored
   untracked = ls-files --others --exclude-standard
 
-  remove-untracked = ! "gitremoveuntracked() { git untracked | xargs rm; }; gitremoveuntracked"
+  remove-untracked = git clean -df
 
   alias = config --get-regexp ^alias\\.
   aliases = config --get-regexp ^alias\\.
