@@ -29,6 +29,9 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " delete trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
 
+" delete trailing blank lines
+au BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d
+
 set background=dark
 colorscheme hybrid
 syntax on
