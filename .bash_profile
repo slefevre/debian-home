@@ -1,4 +1,6 @@
-PATH=$PATH:/usr/local/bin/composer:~/.composer/vendor/bin
+
+
+PATH=$PATH:/usr/local/bin/composer:~/.composer/vendor/bin:/usr/local/node/bin
 
 # Eternal bash history.
 # ---------------------
