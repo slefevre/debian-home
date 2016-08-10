@@ -22,8 +22,8 @@
 
   clear = reset --hard
 
-  branch-grow = ! "gitbranchgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitbranchgrow"
-  branch-excise = ! "gitbranchexcise () { git branch -D $1; git push ${2:-origin} --delete $1; }; gitbranchexcise"
+  grow = ! "gitgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitgrow"
+  excise = ! "gitexcise () { git branch -D $1; git push ${2:-origin} --delete $1; }; gitexcise"
 
   remove = ! "gitremove() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitremove"
   forget  = ! "gitforget() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitforget"
