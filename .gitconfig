@@ -14,13 +14,16 @@
 
   unstage = reset
 
+  current-branch = rev-parse --abbrev-ref HEAD
   overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
-  pwd = ! "git rev-parse --show-toplevel; git remote -v; "
+  pwd = ! "git current-branch; git rev-parse --show-toplevel; git remote -v; "
 
   scrub = ! "gitscrub() { git reset --hard; git clean -d -f; }; gitscrub"
   purify = ! "gitpurify() { git reset --hard; git clean -d -f; }; gitpurify"
 
   clear = reset --hard
+
+  obit = !"gitobit() { git log --stat -1 -- $1; }; gitobit"
 
   grow = ! "gitgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitgrow"
   excise = ! "gitexcise () { git branch -D $1; git push ${2:-origin} --delete $1; }; gitexcise"
