@@ -14,7 +14,7 @@
 
   unstage = reset
 
-  current-branch = rev-parse --abbrev-ref HEAD
+  current = rev-parse --abbrev-ref HEAD
   overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
   pwd = ! "git current-branch; git rev-parse --show-toplevel; git remote -v; "
 
@@ -23,6 +23,10 @@
 
   clear = reset --hard
 
+  restore = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
+  find-a-grave = ! "gitfindagrave() { git log --diff-filter=D --summary|grep $1; }; gitfindagrave"
+
+  ; "obituary"
   obit = !"gitobit() { git log --stat -1 -- $1; }; gitobit"
 
   grow = ! "gitgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitgrow"
