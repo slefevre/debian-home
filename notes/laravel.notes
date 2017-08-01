@@ -1,0 +1,33 @@
+
+ register service providers - ./config/app.php
+
+ routes -  ./app/Http/routes.php
+
+ models -  ./app/Gt/Model.php
+
+ migrations - ./database/named-migrations
+
+ templates -  ./resources/views/page.blade.php
+
+ controllers - ./app/Http/Controllers/controller.php
+
+ rendered templates - ./storage/framework/views
+
+ requests - ./app/Http/Requests/
+
+ logs - ./storage/logs/laravel.log
+
+ css, js - ./public/
+
+ shell commands - ./app/Console/Commands/
+   `php artisan make:console {CommandName}`
+   registration:
+    app/Console/Kernel.php
+      protected $commands = [
+          \App\Console\Commands\{CommandName}::class,
+      ];
+
+
+ clear cache -
+    `php artisan optimize --force; php artisan cache:clear; php artisan config:cache`
+    `php composer dump-autoload`

@@ -6,6 +6,8 @@
 !.gitconfig
 !scripts/
 !scripts/*
+!notes
+!notes/*
 !.vim/
 !.vim/*
 .vim/.netrwhist
