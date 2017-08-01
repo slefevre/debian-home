@@ -1,0 +1,7 @@
+
+
+// build an existing project
+composer update
+
+// update an existing project
+composer update
