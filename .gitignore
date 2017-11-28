@@ -1,5 +1,7 @@
 # Ignore everything
 *
+*~
+*.swp
 
 # But not these files/directories
 !.gitignore

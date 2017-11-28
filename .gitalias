@@ -1,0 +1,117 @@
+; Add include file to .gitconfig
+; [include]
+; path = .gitalias
+
+
+[alias]
+
+; when was a file added
+added = log --diff-filter=A --
+
+alias = config --get-regexp ^alias\\.
+aliases = config --get-regexp ^alias\\.
+
+; show all branches
+branches = branch -a
+
+; summarize unstaged changes
+changed = diff --stat
+
+; remove all changes
+clear = reset --hard
+
+commit-ignore-whitespace = ! "gitcommitignorewhitespace() { git diff -w --no-color | git apply --cached --ignore-whitespace; }; gitcommitignorewhitespace"
+
+; show simply the name of the current branch
+current = rev-parse --abbrev-ref HEAD
+
+; delete a branch locally and remotely, see `grow`
+excise = ! "gitexcise () { git branch -D $1; git push ${2:-origin} --delete $1; }; gitexcise"
+
+; "obituary" -- show the commit in which a file  was deleted
+find-a-grave = ! "gitfindagrave() { git log --diff-filter=D --summary|grep $1; }; gitfindagrave"
+
+forget  = ! "gitforget() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitforget"
+
+; create and push a new branch {to remote, default `origin`}, see excise
+grow = ! "gitgrow() { git checkout -b $1; git push ${2:-origin} $1; }; gitgrow"
+
+; show what files are ignored
+ignored = status --ignored
+
+ignore-filemode = config core.fileMode false
+
+; in which commit was a file introduced
+introduced = log --diff-filter=A --
+
+; a nice, concise log
+nicelog = log --graph --decorate --all --oneline
+
+; "obituary" -- in which commit was a file deleted
+obit = !"gitobit() { git log --stat -1 -- $1; }; gitobit"
+
+overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
+
+pretty-log = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+
+; commit everything and push to remote
+populate = ! "gitpopulate() { git add . ; git commit -m 'Initial population' ; git push origin master ; }; gitpopulate"
+
+
+; remove changes and untracked files/directories
+purify = ! "gitpurify() { git reset --hard; git clean -d -f; }; gitpurify"
+
+pwd = ! "git rev-parse --show-toplevel; git rev-parse --abbrev-ref HEAD; git remote -v; "
+
+remotes = remote -v
+
+remove = ! "gitremove() { git diff --diff-filter=D --name-only -z | xargs -0 git rm; }; gitremove"
+
+remove-untracked = git clean -df
+
+restore = !git ls-files -d | xargs git checkout --
+
+scrub = ! "gitscrub() { git reset --hard; git clean -d -f; }; gitscrub"
+
+; set the upstream repo {default `origin`} (useful when git tells you a long --set-upstream command)
+set-upstream = ! "gitsetupstream() { BRANCH=$(git rev-parse --abbrev-ref HEAD); git push ${1:-origin} $BRANCH; git branch --set-upstream-to=${1:-origin}/$BRANCH $BRANCH; }; gitsetupstream"
+
+; show the filesystem size of the tracked objects in the repo
+size = count-objects -vH
+
+; keep a file from changing, see `unskip`, `skipped`
+skip = update-index --skip-worktree
+
+; Show which worktrees are skipped. See `skip`, `unskip`
+skipped = ! "gitskipped() {  git ls-files -v | grep ^[sS] ; }; gitskipped"
+
+smart-diff = ! "gitsmartdiff() { git diff $2 --stat=$COLUMNS --stat-graph-width=$(($COLUMNS/5)); }; gitsmartdiff"
+
+staged = diff --cached
+
+svn-commit = ! "gitsvncommit() { svn add --force . ; svn commit -m 'Updates from git' ; }; gitsvncommit"
+
+svn-commit2 = ! "gitsvncommit2() { svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm; svn add --force . ;  svn commit -m \"Updates from git\"; }; gitsvncommit2"
+
+svn-delete = ! "gitsvndelete() { svn st | grep ^! | cut -b9- | sed 's/^/\"/;s/$/\"/' | xargs svn rm ; }; gitsvndelete"
+
+svn-ignore = ! "gitsvnignore() { grep -v svn .gitignore | xargs -I % svn propset svn:ignore % . ; }; gitsvnignore"
+
+svn-push   = ! "gitsvnpush() { git stash; svn update .; git svn-delete; git svn-commit ; git stash pop; }; gitsvnpush"
+
+; show what remote(s) the current branch is tracking
+tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}
+
+; remove changes from staging area and reintroduce them as changes/diffs
+uncommit = reset --soft HEAD^
+
+; show unmerged branches
+unmerged = branch --no-merged
+
+; tell git to start noticing changes to a file again. See `skip`, `skipped`
+unskip = update-index --no-skip-worktree
+
+unstage = reset
+
+; show what files are not tracked
+untracked = ls-files --others --exclude-standard
