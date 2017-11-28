@@ -6,6 +6,7 @@
 # But not these files/directories
 !.gitignore
 !.gitconfig
+!.gitalias
 !scripts/
 !scripts/*
 !notes

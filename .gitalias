@@ -57,11 +57,13 @@ pretty-log = log --graph --abbrev-commit --decorate --format=format:'%C(bold blu
 ; commit everything and push to remote
 populate = ! "gitpopulate() { git add . ; git commit -m 'Initial population' ; git push origin master ; }; gitpopulate"
 
-
 ; remove changes and untracked files/directories
 purify = ! "gitpurify() { git reset --hard; git clean -d -f; }; gitpurify"
 
 pwd = ! "git rev-parse --show-toplevel; git rev-parse --abbrev-ref HEAD; git remote -v; "
+
+; show the most recent commits in any branch
+recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
 remotes = remote -v
 
