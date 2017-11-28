@@ -19,6 +19,15 @@
 
  css, js - ./public/
 
+
+ update composer
+
+   `composer update`
+
+clear cached views
+
+   `php artisan view:clear`
+
  shell commands - ./app/Console/Commands/
    `php artisan make:console {CommandName}`
    registration:
@@ -26,6 +35,11 @@
       protected $commands = [
           \App\Console\Commands\{CommandName}::class,
       ];
+
+ refresh data?
+  `php artisan migrate:refresh —seed`
+
+  `php artisan migrate`
 
 
  clear cache -

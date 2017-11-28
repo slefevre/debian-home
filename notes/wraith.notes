@@ -1,28 +1,9 @@
- cd ~/ccad-wraith/
- cd ccad_wraith
- cd ccad-wraith/
- cd wraith
- cp -r ~/ccad-wraith/shots_base/ .
- git remote add origin file:///media/sf_Dropbox/repos/ccad-wraith/
- history |grep wraith
- history |grep wraith > ~/notes/wraith.notes
- locate wraith
- mkdir ccad_wraith
- mkdir wraith
- mv ccad_wraith/ ccad-wraith
- mv wraith/ ccad-wraith
- sudo gem install wraith
- wraith
- wraith capture configs/capture.yaml
- wraith current configs/history.yaml
- wraith history
- wraith history ./configs/history.yaml
- wraith history configs/history.yaml
- wraith latest
- wraith latest configs/history.yaml
- wraith setup
- wraith spider configs/capture.yaml
- wraith spider configs/history-spider.yml
- wraith spider configs/history-spider.yml  > crawls.txt
- wraith spider configs/history.yaml
- wraith spider configs/spider.yaml
+
+
+wrait setup // initialize direcotyr with config files
+
+wraith history ./configs/config.yaml // establist baseline
+
+wraith latest configs/config.yaml // scrape site and compare against baseline
+
+wraith spider configs/spider.yaml // spider according to a configuration
