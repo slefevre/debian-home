@@ -1,6 +1,6 @@
 alias quit='exit'
-alias reboot='sudo shutdown -r now'
-alias halt='sudo shutdown -h now'
+alias reboot='sudo shutdown -r now; exit'
+alias halt='sudo shutdown -h now; exit'
 
 alias wget='wget --content-disposition --user-agent "Mozilla/4.0"'
 
@@ -11,3 +11,5 @@ alias wget='wget --content-disposition --user-agent "Mozilla/4.0"'
 #  wget --content-disposition --user-agent "Mozilla/4.0" "$URL";
 #}
 alias quit='exit'
+
+alias terminus=/home/slefevre/vendor/bin/terminus

@@ -1,13 +1,10 @@
 
-filetype plugin indent on
-
 " On pressing tab, insert 4 spaces
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " go to the position I was when last editing the file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
 
 set background=dark
 colorscheme hybrid

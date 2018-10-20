@@ -20,6 +20,9 @@ changed = diff --stat
 ; remove all changes
 clear = reset --hard
 
+; show date of commits across all branches
+commits = ! "gitcommits() { for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format=\"%ci %cr\" $branch | head -n 1` \\\\t$branch; done | sort -r }; git commits"
+
 commit-ignore-whitespace = ! "gitcommitignorewhitespace() { git diff -w --no-color | git apply --cached --ignore-whitespace; }; gitcommitignorewhitespace"
 
 ; show simply the name of the current branch
@@ -50,6 +53,8 @@ nicelog = log --graph --decorate --all --oneline
 ; "obituary" -- in which commit was a file deleted
 obit = !"gitobit() { git log --stat -1 -- $1; }; gitobit"
 
+; show the oldest commits in all local branches
+oldest = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 overview = ! "git rev-parse --show-toplevel; git remote -v; git branch; git status; git rev-parse HEAD;"
 
 pretty-log = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
